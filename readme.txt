@@ -1,4 +1,4 @@
-this  is project for studying  python  in mooc  
+#this  is project for studying  python  in mooc  
 
 quick start for git (gif)
 	http://git.oschina.net/wzw/git-quick-start
