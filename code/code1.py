@@ -1,7 +1,12 @@
-## Lec 2.5, slide 4
+# notice  that the vaule  that has redefine
+length = int(5)
+width = int (2)
+area = length * width
+print ("the origin area is :")
+print (area)
+length =int (6)
+print ("the new area is :")
+print (area)
+print ("")
+print ("you will notice the same area")
 
-x = 3
-x = x*x #square value of x
-print(x)
-y = float(raw_input('Enter a number: '))
-print(y*y)
