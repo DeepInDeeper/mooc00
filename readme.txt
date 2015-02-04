@@ -1,5 +1,6 @@
 # this  is project for studying  python  in mooc  
-Study for python :scream_cat:  :scream_cat: 
+Study for python :scream_cat: :scream_cat: 
+	https://docs.python.org/2/library/stdtypes.html#str.find
 	https://docs.python.org/3/
 
 INTRODUCTION FOR GIT
