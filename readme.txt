@@ -1,4 +1,6 @@
 # this  is project for studying  python  in mooc  
+Study for python :scream_cat:  :scream_cat: 
+	https://docs.python.org/3/
 
 INTRODUCTION FOR GIT
 	http://blog.csdn.net/wuyao721/article/details/8524190
