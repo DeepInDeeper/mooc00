@@ -18,6 +18,7 @@ c = Coordinate(3,4)
 Origin = Coordinate(0,0)
 print c.x,Origin.x
 print c.distance(Origin)
+print c.__str__()
 c.__init__(5,6)
 print c.x
 print isinstance (c,Coordinate)
