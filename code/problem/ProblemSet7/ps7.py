@@ -47,6 +47,23 @@ def process(url):
 # Problem 1
 
 # TODO: NewsStory
+class NewsStory(object):
+    def __init__(self,guid,title,subject,summary,link):
+        self.guid    = guid
+        self.title   = title
+        self.subject = subject
+        self.summary = summary
+        self.link    = link
+    def getGuid(self):
+        return self.guid
+    def getTitle(self):
+        return self.title 
+    def getSubject(self):
+        return self.subject
+    def getSummary(self):
+        return self.summary
+    def getLink(self):
+        return self.link
 
 #======================
 # Part 2
@@ -64,11 +81,37 @@ class Trigger(object):
 # Whole Word Triggers
 # Problems 2-5
 
+
 # TODO: WordTrigger
+class WordTrigger(Trigger):
+    def __init__(self,story):
+        Trigger.evaluate(self, story)
+    def isWordIn(self,story,txt):
+        s = story[:]
+        import string
+        for i in range(len(string.punctuation)):
+            s=s.replace(string.punctuation[i],' ')
+        s = s.lower()
+        s = s.split(' ')
+        return txt in s
 
 # TODO: TitleTrigger
+class TitleTrigger(WordTrigger):
+    def TitleTrigger(self,story):
+        title = story.getTitle()
+        isWordIn(self, story,title)
 # TODO: SubjectTrigger
+class SubjectTrigger(WordTrigger):
+    def SubjectTrigger(self,story):
+        subject = story.getSubject()
+        isWordIn(self, story,subject)
+   
 # TODO: SummaryTrigger
+class SummaryTrigger(WordTrigger):
+    def SummaryTrigger(selfsummary):
+        summary = story.getSummary()
+        isWordIn(self, story,summary)
+    
 
 
 # Composite Triggers
