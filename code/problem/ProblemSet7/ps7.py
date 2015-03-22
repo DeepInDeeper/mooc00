@@ -84,33 +84,45 @@ class Trigger(object):
 
 # TODO: WordTrigger
 class WordTrigger(Trigger):
-    def __init__(self,story):
-        Trigger.evaluate(self, story)
-    def isWordIn(self,story,txt):
-        s = story[:]
+    def __init__(self,word):
+        self.word = word
+    def isWordIn(self):
         import string
+        words = self.word
+        subject = story.getSubject()
+        title = story.getTitle()
+        summary = story.getSummary()
+        # remove the punctuation
         for i in range(len(string.punctuation)):
-            s=s.replace(string.punctuation[i],' ')
-        s = s.lower()
-        s = s.split(' ')
-        return txt in s
-
+            subject =subject.replace(string.punctuation[i],' ')
+            title=title.replace(string.punctuation[i],' ')
+            summary=summary.replace(string.punctuation[i],' ')
+        # convert to the lower   
+        subject = subject.lower()
+        title = title.lower()
+        summary = summary.lower()
+        self.word = self.word.lower()
+        #judge the true or False
+        if ((self.word in subject) or (self.word in title) or (self.word in summary)):
+            return  True
+        else :
+            return False
+        
+       
 # TODO: TitleTrigger
 class TitleTrigger(WordTrigger):
-    def TitleTrigger(self,story):
-        title = story.getTitle()
-        isWordIn(self, story,title)
+    def evaluate(self, story):
+        return TitleTrigger.isWordIn(self)
+
 # TODO: SubjectTrigger
 class SubjectTrigger(WordTrigger):
-    def SubjectTrigger(self,story):
-        subject = story.getSubject()
-        isWordIn(self, story,subject)
+    def evaluate(self, story):
+        return TitleTrigger.isWordIn(self)
    
 # TODO: SummaryTrigger
 class SummaryTrigger(WordTrigger):
-    def SummaryTrigger(selfsummary):
-        summary = story.getSummary()
-        isWordIn(self, story,summary)
+    def evaluate(self, story):
+        return TitleTrigger.isWordIn(self)
     
 
 
