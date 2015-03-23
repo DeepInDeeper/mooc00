@@ -86,33 +86,26 @@ class Trigger(object):
 class WordTrigger(Trigger):
     def __init__(self,word):
         self.word = word
-    def isWordIn(self,story):
-        self.story=story
-        storys = ''
-        storys = self.story
+    def isWordIn(self,text):
+        self.text = text
         import string
         words = self.word
+        texts = self.text
         # test 
         #print storys.title
         
         # remove the punctuation
-        if (type(storys.subject)==str or storys.title==str or storys.summary==str):
-            for i in range(len(string.punctuation)):
-                storys.subject =storys.subject.replace(string.punctuation[i],' ')
-                storys.title=storys.title.replace(string.punctuation[i],' ')
-                storys.summary=storys.summary.replace(string.punctuation[i],' ')
-            # convert to the lower   
-            storys.subject = storys.subject.lower()
-            storys.title = storys.title.lower()
-            storys.summary = storys.summary.lower()
-            # separate the word 
-            storys.subject=storys.subject.split(' ')
-            storys.title = storys.title.split(' ')
-            storys.summary = storys.summary.split   (' ')
-            self.word = self.word.lower()
+        
+        for i in range(len(string.punctuation)): 
+            texts =texts.replace(string.punctuation[i],' ')
+        # convert to the lower   
+        texts = texts.lower()
+        # separate the word 
+        texts = texts.split(' ')
+        self.word = self.word.lower()
         #print "the convered is "+str(storys.title)
         #judge the true or False
-        if ((self.word in storys.subject) or (self.word in storys.title) or (self.word in storys.summary)):
+        if (self.word in texts):
             return  True
         else :
             return False
@@ -122,17 +115,17 @@ class WordTrigger(Trigger):
 # TODO: TitleTrigger
 class TitleTrigger(WordTrigger):
     def evaluate(self, story):
-        return TitleTrigger.isWordIn(self,story)
+        return TitleTrigger.isWordIn(self,story.getTitle())
 
 # TODO: SubjectTrigger
 class SubjectTrigger(WordTrigger):
     def evaluate(self, story):
-        return SubjectTrigger.isWordIn(self,story)
+        return SubjectTrigger.isWordIn(self,story.getSubject())
    
 # TODO: SummaryTrigger
 class SummaryTrigger(WordTrigger):
     def evaluate(self, story):
-        return SummaryTrigger.isWordIn(self,story)
+        return SummaryTrigger.isWordIn(self,story.getSummary())
     
 
 
