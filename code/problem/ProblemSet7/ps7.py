@@ -91,11 +91,6 @@ class WordTrigger(Trigger):
         import string
         words = self.word
         texts = self.text
-        # test 
-        #print storys.title
-        
-        # remove the punctuation
-        
         for i in range(len(string.punctuation)): 
             texts =texts.replace(string.punctuation[i],' ')
         # convert to the lower   
@@ -133,14 +128,59 @@ class SummaryTrigger(WordTrigger):
 # Problems 6-8
 
 # TODO: NotTrigger
+class NotTrigger(Trigger):
+    def __init__(self,T):
+        self.T = T
+    def evaluate(self, story):
+        return (not self.T.evaluate(story))
+        
+        
+        
+        
+        
 # TODO: AndTrigger
+class AndTrigger(Trigger):
+    def __init__(self,T1,T2):
+        self.T1 = T1
+        self.T2 = T2
+    def evaluate(self,story):
+        return ((self.T1.evaluate(story))and (self.T2.evaluate(story)))
+        
 # TODO: OrTrigger
-
+class OrTrigger(Trigger):
+    def __init__(self,T1,T2):
+        self.T1 = T1
+        self.T2 = T2
+    def evaluate(self,story):
+        return ((self.T1.evaluate(story))or (self.T2.evaluate(story)))
+       
 
 # Phrase Trigger
 # Question 9
 
 # TODO: PhraseTrigger
+class PhraseTrigger(Trigger):
+    def __init__(self,Phrase):
+        self.Phrase = Phrase
+    def evaluate(self,story):
+        count = 0
+        start = 0
+        s= story.getTitle()+story.getSubject()+story.getSummary()
+        for i in range(len(s)):
+            if s[i] == self.Phrase[0]:
+                start = i
+        for j in range(len(self.Phrase)):
+            if s[start] == self.Phrase[j]:
+                count += 1
+                start += 1
+            else:
+                start += 1
+        if (count != len(self.Phrase) or count == 0 ):
+            return False
+        elif (count == len(self.Phrase) and count!= 0) :
+            return True
+            
+        
 
 
 #======================
@@ -155,7 +195,19 @@ def filterStories(stories, triggerlist):
     Returns: a list of only the stories for which a trigger in triggerlist fires.
     """
     # TODO: Problem 10
-    # This is a placeholder (we're just returning all the stories, with no filtering) 
+    # This is a placeholder (we're just returning all the stories, with no filtering)
+    time = 0
+    for i in range(len(stories)): 
+        value = False
+        for Trigger in triggerlist:
+            if Trigger.evaluate(stories[i-time]):
+                value = value or True
+            else:
+                value = value or False
+        if value == False:
+            del stories[i-time]
+            time += 1
+            
     return stories
 
 #======================
