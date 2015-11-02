@@ -1,4 +1,5 @@
-end = int (raw_input ("enter your num"))
+# function: 1+2+^end
+end = int (raw_input ("enter your num"))
 x=0
 while (end != 0):
     x += end

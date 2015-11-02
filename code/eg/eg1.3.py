@@ -1,3 +1,4 @@
+# output the numbers of the Vowels and Cons
 school = 'Massachusetts Institute of Technology'
 numVowels = 0
 numCons = 0
@@ -13,3 +14,4 @@ for char in school:
 
 print 'numVowels is: ' + str(numVowels)
 print 'numCons is: ' + str(numCons) 
+print len(school)

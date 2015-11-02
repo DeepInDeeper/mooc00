@@ -1,3 +1,5 @@
+# break using
+#if the iteration is Odd number,the output is total of sentance,else ,the output is 1.
 iteration = 0
 while iteration < 5:
     count = 0
