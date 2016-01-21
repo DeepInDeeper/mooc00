@@ -1,0 +1,9 @@
+all([True,False,True])==True
+any([True,False,True])
+isinstance(u"Œ“", basestring)
+isinstance(unicode, basestring)
+len(bin(5))
+callable(1)
+chr(65)
+cmp(3,2)
+complex(1,2)==complex("1+2j")
