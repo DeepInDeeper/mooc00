@@ -12,6 +12,7 @@ try:
     request = urllib2.Request(url,headers = headers)
     response = urllib2.urlopen(request)
     content = response.read().decode('utf-8')
+    #print "the type is "+str(type(content))
     pattern = re.compile('<div.*?author clearfix">.*?<a.*?<h2>(.*?)</h2>.*?content">'+
                          '(.*?)<!--(.*?)-->.*?</div>(.*?)<div class="stats.*?class="number hidden">(.*?)</span>',re.S)
     items = re.findall(pattern,content)
