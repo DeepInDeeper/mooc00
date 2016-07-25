@@ -1,6 +1,6 @@
-# this  is project for studying  python  in mooc  
-
-adding update¡£¡£¡£ do some things
+# this  is project for studying  python  in mooc 
+# add some books
+# update some codes for python 
 
 Study for python :scream_cat: :scream_cat: 
 	https://docs.python.org/2/library/stdtypes.html#str.find
