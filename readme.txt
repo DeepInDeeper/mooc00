@@ -1,4 +1,5 @@
-# this  is project for studying  python  in mooc 
+# this  is project for studying  python  in mooc
+web：http://www.xuetangx.com/courses/course-v1:MITx+6_00_1x+sp/about
 # add some books
 # update some codes for python 
 
